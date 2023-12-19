@@ -1,0 +1,29 @@
+/* Header.css */
+.app-bar {
+    background-color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #444444;
+  }
+  
+  .logo-img {
+    margin-right: 12px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .church-name {
+    color: black;
+  }
+  
+  .menu-items {
+    flex-grow: 1;
+  }
+  
+  /* Add your other styles for buttons, dropdowns, etc. */
+  
