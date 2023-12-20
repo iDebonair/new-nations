@@ -41,7 +41,7 @@ const Header = () => {
         <div style={{ flexGrow: 1 }}></div>
 
         <Button color="inherit" component={Link} to="/live-stream" sx={{ color: '#444444', marginRight: '12px' }}>
-          Live Stream
+          Stream Live
         </Button>
 
         <Button color="inherit" component={Link} to="/visit" sx={{ color: '#444444', marginRight: '12px' }}>
@@ -106,7 +106,9 @@ const Header = () => {
               },
             }}
           >
-            About
+            <Link to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
+              About
+            </Link>
           </Button>
           <Menu
             id="about-menu"
