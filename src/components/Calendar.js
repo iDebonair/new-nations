@@ -20,6 +20,7 @@ const Calendar = () => {
   const [sessionDetails, setSessionDetails] = useState('');
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [modeOfMeeting, setModeOfMeeting] = useState('');
 
   const handleDateChange = (date) => {
@@ -36,6 +37,10 @@ const Calendar = () => {
 
   const handleDetailsChange = (details) => {
     setSessionDetails(details);
+  };
+
+  const handleEmailChange = (email) => {
+    setEmail(email);
   };
 
   const handleNameChange = (name) => {
@@ -100,7 +105,7 @@ const Calendar = () => {
 
         <Grid item xs={12}>
           <div>
-            <h2>Visitor Information</h2>
+            <h2>Your Information</h2>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -119,7 +124,16 @@ const Calendar = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
+          <TextField
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => handleEmailChange(e.target.value)}
+            fullWidth
+          />
+        </Grid>
+              <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <InputLabel>Mode of Meeting</InputLabel>
                   <Select
@@ -137,7 +151,7 @@ const Calendar = () => {
 
         <Grid item xs={12}>
           <div>
-            <h2>Select Person</h2>
+            <h2>Who would you like to speak to?</h2>
             <FormControl fullWidth>
               <InputLabel>Select Who To See</InputLabel>
               <Select
@@ -154,7 +168,7 @@ const Calendar = () => {
 
         <Grid item xs={12}>
           <div>
-            <h2>Enter Session Details</h2>
+            <h2>What would you like to discuss?</h2>
             <TextField
               label="Session Details"
               multiline
@@ -177,7 +191,7 @@ const Calendar = () => {
             onClick={handleBooking}
             fullWidth
           >
-            Book Time
+            Submit
           </Button>
         </Grid>
       </Grid>
