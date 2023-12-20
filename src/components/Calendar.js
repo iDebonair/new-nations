@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { format } from 'date-fns';
-import { blue } from '@mui/material/colors'; // Import the blue color from Material-UI
 
 
 const Calendar = () => {
@@ -170,7 +169,11 @@ const Calendar = () => {
         <Grid item xs={12}>
         <Button
             variant="contained"
-            style={{ backgroundColor: blue[500], color: 'white' }} // Use blue color from Material-UI
+            style={{  background: '#001F3F', // Navy blue
+            color: 'white',
+            '&:hover': {
+              background: '#001A33', // Darker shade on hover
+            }, }} // Use blue color from Material-UI
             onClick={handleBooking}
             fullWidth
           >

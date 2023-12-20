@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
+import FAQs from './FAQs';
 
 const Visit = () => {
   const defaultMapLocation =
@@ -10,24 +11,34 @@ const Visit = () => {
       {/* First Banner Image */}
       <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
         <img
-          src="https://source.unsplash.com/1600x200/?nature,church,${randomImageId}" // Replace with your actual banner image URL
+          src={'https://source.unsplash.com/1600x200/?nature,church'} // Replace with your actual banner image URL
           alt="Banner"
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
         />
+        {/* Text Overlay */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <Typography variant="h4" gutterBottom>
+            Welcome to New Nations Baptist Church
+          </Typography>
+          <Typography variant="body1">
+            Join us for a transformative worship experience
+          </Typography>
+        </div>
       </div>
 
-      {/* Church Address, Picture, and Map */}
-      <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ width:'50%', margin:'1em auto' }}>
+{/* Church Address and Picture */}
+<Grid container spacing={2} justifyContent="center" alignItems="center" style={{ width:'30%', margin:'1em auto' }}>
         <Grid item xs={12} md={6}>
           <Typography variant="body1">
             <div style={{ textAlign: 'center' }}>
               1, Aderibigbe Shitta, Maryland, Lagos
               <br />
               <br />
-              Sunday: 9:00 AM
+              <strong>Sunday:</strong> 9:00 AM
               <br />
               <br />
-              Wednesday: 7:00 PM
+              <strong />
+              <strong>Wednesday:</strong> 7:00 PM
               <br />
             </div>
           </Typography>
@@ -41,12 +52,11 @@ const Visit = () => {
             style={{ width: '100%', height: '200px', borderRadius: '10px' }}
           />
         </Grid>
+      </Grid>
 
-        {/* Map */}
+      {/* Map */}
+      <Grid container justifyContent="center" alignItems="center" style={{ width: '50%', margin: '1em auto' }}>
         <Grid item xs={12}>
-          <Typography variant="h5" gutterBottom>
-            To Locate the Church:
-          </Typography>
           <iframe
             title="Church Map"
             width="100%"
@@ -61,20 +71,14 @@ const Visit = () => {
       {/* Second Banner Image */}
       <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginTop: '20px' }}>
         <img
-          src="https://source.unsplash.com/1600x200/?nature,church,${randomImageId}" // Replace with your actual banner image URL
+          src="https://source.unsplash.com/1600x200/?nature,church" // Replace with your actual banner image URL
           alt="Banner"
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
         />
       </div>
 
       {/* FAQs Section */}
-      <Typography variant="h4" gutterBottom style={{ marginTop: '20px' }}>
-        Frequently Asked Questions (FAQs)
-      </Typography>
-      <Typography variant="body1">
-        Add your FAQs content here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        ...
-      </Typography>
+      <FAQs />
     </div>
   );
 };

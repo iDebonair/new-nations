@@ -7,6 +7,7 @@ import LiveStream from './components/LiveStream';
 import Calendar from './components/Calendar';
 import Home from './components/Home';
 import Visit from './components/Visit';
+import About from './components/About';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/visit" element={<Visit />} />
           <Route path="/live-stream" element={<LiveStream />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/about" element={<About />} />
           <Route path="/offering" element={<OfferingForm />} /> 
           <Route path="/" element={<Home />} /> 
         </Routes>
