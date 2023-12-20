@@ -5,43 +5,43 @@ import { Typography } from '@material-ui/core';
 
 const FAQs = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '20px' }}>
+    <div style={{ display: 'flex', margin: '10px', justifyContent:'center' }}>
       {/* FAQ Header Container */}
-      <div style={{ marginBottom: '20px', width: '50%' }}>
+      <div style={{ marginRight: '10px', width: '13%', color:'grey' }}>
         <Typography variant="h4" gutterBottom>
           Frequently Asked Questions
         </Typography>
       </div>
 
       {/* FAQs Container */}
-      <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '50%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '30%' }}>
         {/* FAQ 1 */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '10px' }}>
           <Typography variant="body1">
             <strong>WHERE DO I PARK AND ENTER?</strong>
           </Typography>
-          <Typography variant="body1" style={{ marginTop: '8px' }}>
+          <Typography variant="body1" style={{ marginTop: '4px' }}>
             From the moment you pull onto the property, you will feel the excitement of the weekend worship experience at New Nations Baptist Church. Our friendly parking team will greet you with a smile and help you find a great parking spot.
           </Typography>
         </div>
 
         {/* FAQ 2 */}
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <Typography variant="body1">
             <strong>WHAT SHOULD I WEAR?</strong>
           </Typography>
-          <Typography variant="body1" style={{ marginTop: '8px', marginBottom: '8px' }}>
-          Our worshipers don a wide range of attire, from casual wear like jeans and sneakers to formal options like dresses and slacks and traditional attire. Feel free to dress comfortably in whatever you prefer—we're enthusiastic about having you join us! Rest assured, you'll blend in seamlessly, no matter your chosen attire.
+          <Typography variant="body1" style={{ marginTop: '4px', marginBottom: '4px' }}>
+            Our worshipers don a wide range of attire, from casual wear like jeans and sneakers to formal options like dresses and slacks and traditional attire. Feel free to dress comfortably in whatever you prefer—we're enthusiastic about having you join us! Rest assured, you'll blend in seamlessly, no matter your chosen attire.
           </Typography>
         </div>
 
         {/* FAQ 3 */}
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <Typography variant="body1">
             <strong>WHAT TO EXPECT DURING WORSHIP</strong>
           </Typography>
-          <Typography variant="body1" style={{ marginTop: '8px', marginBottom: '8px' }}>
-          The church services commence with sunday school and then contemporary Christian music, showcasing a full band complete with guitars, drums, and keyboards. Our talented musicians and vocalists create a spiritually enriching musical backdrop for everyone to participate in. The focus is to enjoy divine presence of God and worship Him in the beauty of His holiness.
+          <Typography variant="body1" style={{ marginTop: '4px', marginBottom: '4px' }}>
+            The church services commence with Sunday school and then contemporary Christian music, showcasing a full band complete with guitars, drums, and keyboards. Our talented musicians and vocalists create a spiritually enriching musical backdrop for everyone to participate in. The focus is to enjoy the divine presence of God and worship Him in the beauty of His holiness.
           </Typography>
         </div>
         {/* Add more FAQs as needed */}
