@@ -69,7 +69,7 @@ const Visit = () => {
       </Grid>
 
       {/* Second Banner Image */}
-      <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginTop: '20px' }}>
+      <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginTop: '20px', marginBottom: '40px' }}>
         <img
           src="https://source.unsplash.com/1600x200/?nature,church" // Replace with your actual banner image URL
           alt="Banner"
