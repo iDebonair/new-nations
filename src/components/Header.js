@@ -11,6 +11,7 @@ const Header = () => {
   };
 
   const handleMouseLeave = (e, setAnchorEl) => {
+    setAnchorEl(false);
     setAboutAnchorEl(null);
     setGrowAnchorEl(null);
   };
@@ -41,6 +42,10 @@ const Header = () => {
 
         <Button color="inherit" component={Link} to="/live-stream" sx={{ color: '#444444', marginRight: '12px' }}>
           Live Stream
+        </Button>
+
+        <Button color="inherit" component={Link} to="/visit" sx={{ color: '#444444', marginRight: '12px' }}>
+          Visit
         </Button>
         <Button color="inherit" component={Link} to="/calendar" sx={{ color: '#444444', marginRight: '12px' }}>
           Need Prayer?
