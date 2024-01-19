@@ -8,6 +8,8 @@ import Calendar from './components/Calendar';
 import Home from './components/Home';
 import Visit from './components/Visit';
 import About from './components/About';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
   return (

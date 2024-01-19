@@ -1,29 +1,64 @@
 /* Header.css */
-.app-bar {
-    background-color: white;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #444444;
-  }
-  
-  .logo-img {
-    margin-right: 12px;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .church-name {
-    color: black;
-  }
-  
-  .menu-items {
-    flex-grow: 1;
-  }
-  
-  /* Add your other styles for buttons, dropdowns, etc. */
-  
+
+.header-container {
+  display: flex;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  padding-right: 30px;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: height 2s ease, background-color 1s ease, box-shadow 1s ease;
+}
+
+.header-container.scroll {
+  height: 60px; /* Set the reduced height as needed */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+.church-name {
+  color: #212529;
+  font-size: 1.5rem;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #212529;
+}
+
+.menu-item:hover {
+  text-decoration: none;
+  background-color: white;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  padding-top: 1.5rem;
+  gap: 0.5rem;
+  font-size: 14px;
+}

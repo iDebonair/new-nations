@@ -1,145 +1,111 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Box, Menu, MenuItem } from '@mui/material';
+import '../styling/Header.css';
 
 const Header = () => {
-  const [growAnchorEl, setGrowAnchorEl] = useState(null);
-  const [aboutAnchorEl, setAboutAnchorEl] = useState(null);
+  const [scrolling, setScrolling] = useState(false);
+  const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
+  const [growMenuOpen, setGrowMenuOpen] = useState(false);
 
-  const handleMouseOver = (event, setAnchorEl) => {
-    setAnchorEl(event.currentTarget);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolling = window.scrollY > 0;
+      setScrolling(isScrolling);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleMouseOver = (menu) => {
+    if (menu === 'about') {
+      setAboutMenuOpen(true);
+      setGrowMenuOpen(false); // Close the other menu if open
+    } else if (menu === 'grow') {
+      setGrowMenuOpen(true);
+      setAboutMenuOpen(false); // Close the other menu if open
+    }
   };
 
-  const handleMouseLeave = (e, setAnchorEl) => {
-    setAnchorEl(false);
-    setAboutAnchorEl(null);
-    setGrowAnchorEl(null);
-  };
-
-  const handleClose = (setAnchorEl) => {
-    setAnchorEl(null);
+  const handleCloseMenu = () => {
+    setAboutMenuOpen(false);
+    setGrowMenuOpen(false);
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white' }}>
-      <Toolbar>
-        <Box
-          component={Link}
-          to="/"
-          sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: '#444444' }}
-        >
+    <div className={`header-container${scrolling ? ' scroll' : ''}`}>
+      <div className="logo-container">
+        <Link to="/home" className="d-flex align-items-center text-decoration-none text-dark">
           <img
             src="https://placekitten.com/40/40"
             alt="Church Logo"
-            style={{ marginRight: '12px', borderRadius: '50%', width: '40px', height: '40px' }}
+            className="logo"
+            width="40"
+            height="40"
           />
-          <Typography variant="h6" component="div" sx={{ color: 'black' }}>
-            New Nations Baptist Church
-          </Typography>
-        </Box>
+          <div className="text-dark fs-4">New Nations Baptist Church</div>
+        </Link>
+      </div>
 
-        <div style={{ flexGrow: 1 }}></div>
-
-        <Button color="inherit" component={Link} to="/live-stream" sx={{ color: '#444444', marginRight: '12px' }}>
-          Stream Live
-        </Button>
-
-        <Button color="inherit" component={Link} to="/visit" sx={{ color: '#444444', marginRight: '12px' }}>
-          Visit
-        </Button>
-        <Button color="inherit" component={Link} to="/calendar" sx={{ color: '#444444', marginRight: '12px' }}>
-          Need Prayer?
-        </Button>
-
-        {/* Grow Dropdown */}
+      <div className="menu-container">
         <div
-          onMouseEnter={(event) => handleMouseOver(event, setGrowAnchorEl)}
-          onMouseLeave={(event) => handleMouseLeave(event, setGrowAnchorEl)}
+          onMouseOver={() => handleMouseOver('about')}
+          onMouseLeave={() => setAboutMenuOpen(false)}
         >
-          <Button
-            color="inherit"
-            aria-controls="grow-menu"
-            aria-haspopup="true"
-            sx={{
-              color: '#444444',
-              marginRight: '12px',
-              '&:hover': {
-                backgroundColor: 'grey',
-              },
-            }}
-          >
-            Grow
-          </Button>
-          <Menu
-            id="grow-menu"
-            anchorEl={growAnchorEl}
-            open={Boolean(growAnchorEl)}
-            onClose={() => handleClose(setGrowAnchorEl)}
-            transformOrigin={{
-              vertical: 6,
-              horizontal: 0,
-            }}
-          >
-            <MenuItem component={Link} to="/baptism">
-              Baptism
-            </MenuItem>
-            <MenuItem component={Link} to="/member-database">
-              Member Database
-            </MenuItem>
-          </Menu>
+          <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
+            ABOUT
+          </Link>
+          {aboutMenuOpen && (
+            <div className="sub-menu">
+              <Link to="/pastorate" className="menu-item" onClick={handleCloseMenu}>
+                PASTORATE
+              </Link>
+              <Link to="/who-we-are" className="menu-item" onClick={handleCloseMenu}>
+                WHO WE ARE
+              </Link>
+              <Link to="/youth-unusual" className="menu-item" onClick={handleCloseMenu}>
+                YOUTH UNUSUAL
+              </Link>
+              <Link to="/ministries" className="menu-item" onClick={handleCloseMenu}>
+                MINISTRIES
+              </Link>
+            </div>
+          )}
         </div>
 
-        {/* About Dropdown */}
         <div
-          onMouseEnter={(event) => handleMouseOver(event, setAboutAnchorEl)}
-          onMouseLeave={(event) => handleMouseLeave(event, setAboutAnchorEl)}
+          onMouseOver={() => handleMouseOver('grow')}
+          onMouseLeave={() => setGrowMenuOpen(false)}
         >
-          <Button
-            color="inherit"
-            aria-controls="about-menu"
-            aria-haspopup="true"
-            sx={{
-              color: '#444444',
-              marginRight: '12px',
-              '&:hover': {
-                backgroundColor: 'grey',
-              },
-            }}
-          >
-            <Link to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
-              About
-            </Link>
-          </Button>
-          <Menu
-            id="about-menu"
-            anchorEl={aboutAnchorEl}
-            open={Boolean(aboutAnchorEl)}
-            onClose={() => handleClose(setAboutAnchorEl)}
-            transformOrigin={{
-              vertical: 8,
-              horizontal: 0,
-            }}
-          >
-            <MenuItem component={Link} to="/pastorate">
-              Pastorate
-            </MenuItem>
-            <MenuItem component={Link} to="/who-we-are">
-              Who we are
-            </MenuItem>
-            <MenuItem component={Link} to="/youth-unusual">
-              Youth Unusual
-            </MenuItem>
-            <MenuItem component={Link} to="/ministries">
-              Ministries
-            </MenuItem>
-          </Menu>
+          <Link to="/grow" className="menu-item" onClick={handleCloseMenu}>
+            GROW
+          </Link>
+          {growMenuOpen && (
+            <div className="sub-menu">
+              <Link to="/baptism" className="menu-item" onClick={handleCloseMenu}>
+                BAPTISM
+              </Link>
+              <Link to="/member-database" className="menu-item" onClick={handleCloseMenu}>
+                MEMBERSHIP
+              </Link>
+            </div>
+          )}
         </div>
 
-        <Button color="inherit" component={Link} to="/offering" sx={{ color: '#444444', marginRight: '12px' }}>
-          Offering
-        </Button>
-      </Toolbar>
-    </AppBar>
+        <Link to="/live-stream" className="menu-item" onClick={handleCloseMenu}>
+          STREAM LIVE
+        </Link>
+        <Link to="/visit" className="menu-item" onClick={handleCloseMenu}>
+          VISIT
+        </Link>
+        <Link to="/offering" className="menu-item" onClick={handleCloseMenu}>
+          GIVE
+        </Link>
+      </div>
+    </div>
   );
 };
 

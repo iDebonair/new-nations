@@ -29,8 +29,7 @@ const Visit = () => {
 {/* Church Address and Picture */}
 <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ width:'30%', margin:'1em auto' }}>
         <Grid item xs={12} md={6}>
-          <Typography variant="body1">
-            <div style={{ textAlign: 'center' }}>
+          <Typography variant="body1" style={{ textAlign: 'center' }}>
               1, Aderibigbe Shitta, Maryland, Lagos
               <br />
               <br />
@@ -40,7 +39,6 @@ const Visit = () => {
               <strong />
               <strong>Wednesday:</strong> 7:00 PM
               <br />
-            </div>
           </Typography>
         </Grid>
 
