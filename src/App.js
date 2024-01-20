@@ -9,6 +9,8 @@ import Home from './components/Home';
 import Visit from './components/Visit';
 import About from './components/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Pastorate from './components/Pastorate';
+import Youth from './components/Youth';
 
 
 const App = () => {
@@ -21,8 +23,10 @@ const App = () => {
           <Route path="/live-stream" element={<LiveStream />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/about" element={<About />} />
+          <Route path="/pastorate" element={<Pastorate />} />
           <Route path="/offering" element={<OfferingForm />} /> 
           <Route path="/" element={<Home />} /> 
+          <Route path="/youth-unusual" element={<Youth />} /> 
         </Routes>
       </div>
     </Router>

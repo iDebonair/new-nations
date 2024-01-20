@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <div className={`header-container${scrolling ? ' scroll' : ''}`}>
       <div className="logo-container">
-        <Link to="/home" className="d-flex align-items-center text-decoration-none text-dark">
+        <Link to="/" className="d-flex align-items-center text-decoration-none text-dark">
           <img
             src="https://placekitten.com/40/40"
             alt="Church Logo"
@@ -46,7 +46,7 @@ const Header = () => {
             width="40"
             height="40"
           />
-          <div className="text-dark fs-4">New Nations Baptist Church</div>
+          <div className="text-dark fs-5">New Nations Baptist Church</div>
         </Link>
       </div>
 
@@ -60,11 +60,11 @@ const Header = () => {
           </Link>
           {aboutMenuOpen && (
             <div className="sub-menu">
+              <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
+                WHO WE ARE
+              </Link>
               <Link to="/pastorate" className="menu-item" onClick={handleCloseMenu}>
                 PASTORATE
-              </Link>
-              <Link to="/who-we-are" className="menu-item" onClick={handleCloseMenu}>
-                WHO WE ARE
               </Link>
               <Link to="/youth-unusual" className="menu-item" onClick={handleCloseMenu}>
                 YOUTH UNUSUAL

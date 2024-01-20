@@ -7,7 +7,7 @@ const Visit = () => {
     'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15851.920346893372!2d3.3663612!3d6.5752878!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b92707ee500e9%3A0x9ee6148de43a4d22!2s1%20Aderibigbe%20Shitta%20St%2C%20Maryland%2C%20Lagos%20101233%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1614658044073!5m2!1sen!2sus';
 
   return (
-    <div style={{ padding: '0', margin: '0', position: 'relative' }}>
+    <div style={{ padding: '0', margin: '0', position: 'relative',marginTop: '70px' }}>
       {/* First Banner Image */}
       <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
         <img
@@ -73,6 +73,12 @@ const Visit = () => {
           alt="Banner"
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
         />
+                {/* Text Overlay */}
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
+          <Typography variant="h4" gutterBottom>
+            FAQs
+          </Typography>
+          </div>
       </div>
 
       {/* FAQs Section */}

@@ -15,7 +15,7 @@ const About = () => {
       </style>
 
       {/* Banner Container */}
-      <Container style={{ padding: '0', margin: '0', position: 'relative' }}>
+      <Container style={{ padding: '0', margin: '0', position: 'relative', marginTop:'70px' }}>
         <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
           <img
             src={'https://source.unsplash.com/1600x200/?nature,church'} // Replace with your actual banner image URL

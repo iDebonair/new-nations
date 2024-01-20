@@ -1,0 +1,29 @@
+/* Pastorate.css */
+
+.pastor-profiles {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pastor {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .text-container {
+    margin-left: 20px;
+    width: 50%;
+  }
+
+  .pastor img {
+    border-radius: 50%; /* Adjust the border-radius value as needed */
+  }
+  
+  .lead-pastor {
+    /* Add any specific styles for the lead pastor profile here */
+  }
+  
+  .associate-pastor {
+    /* Add any specific styles for the associate pastor profile here */
+  }
+  
