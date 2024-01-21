@@ -8,10 +8,10 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Typography,
 } from '@mui/material';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { format } from 'date-fns';
-
 
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -69,62 +69,55 @@ const Calendar = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" style={{ marginTop: '4rem' }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Schedule a Session
+      </Typography>
+
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <div>
-            <h2>Select Date and Time</h2>
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <TextField
-                  label="Select Date"
-                  type="date"
-                  defaultValue={format(selectedDate, 'yyyy-MM-dd')}
-                  onChange={(e) => handleDateChange(new Date(e.target.value))}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  fullWidth
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <TextField
-                  label="Select Time"
-                  type="time"
-                  value={selectedTime}
-                  onChange={(e) => handleTimeChange(e.target.value)}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  fullWidth
-                />
-              </Grid>
-            </Grid>
-          </div>
+          <TextField
+            label="Select Date"
+            type="date"
+            defaultValue={format(selectedDate, 'yyyy-MM-dd')}
+            onChange={(e) => handleDateChange(new Date(e.target.value))}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Select Time"
+            type="time"
+            value={selectedTime}
+            onChange={(e) => handleTimeChange(e.target.value)}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
+          />
         </Grid>
 
-        <Grid item xs={12}>
-          <div>
-            <h2>Your Information</h2>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Name"
-                  value={name}
-                  onChange={(e) => handleNameChange(e.target.value)}
-                  fullWidth
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Phone Number"
-                  type="tel"
-                  value={phoneNumber}
-                  onChange={(e) => handlePhoneNumberChange(e.target.value)}
-                  fullWidth
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Your Name"
+            value={name}
+            onChange={(e) => handleNameChange(e.target.value)}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Phone Number"
+            type="tel"
+            value={phoneNumber}
+            onChange={(e) => handlePhoneNumberChange(e.target.value)}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
           <TextField
             label="Email"
             type="email"
@@ -133,61 +126,54 @@ const Calendar = () => {
             fullWidth
           />
         </Grid>
-              <Grid item xs={12} sm={6}>
-                <FormControl fullWidth>
-                  <InputLabel>Mode of Meeting</InputLabel>
-                  <Select
-                    value={modeOfMeeting}
-                    onChange={(e) => handleModeOfMeetingChange(e.target.value)}
-                  >
-                    <MenuItem value="In-person">In-person</MenuItem>
-                    <MenuItem value="Virtual">Virtual</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-            </Grid>
-          </div>
+        <Grid item xs={12}sm={6}>
+          <FormControl fullWidth>
+            <InputLabel>Mode of Meeting</InputLabel>
+            <Select
+              value={modeOfMeeting}
+              onChange={(e) => handleModeOfMeetingChange(e.target.value)}
+            >
+              <MenuItem value="In-person">In-person</MenuItem>
+              <MenuItem value="Virtual">Virtual</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
 
         <Grid item xs={12}>
-          <div>
-            <h2>Who would you like to speak to?</h2>
-            <FormControl fullWidth>
-              <InputLabel>Select Who To See</InputLabel>
-              <Select
-                value={selectedPerson}
-                onChange={(e) => handlePersonChange(e.target.value)}
-              >
-                <MenuItem value="Rev Abimbola">Rev Abimbola</MenuItem>
-                <MenuItem value="Rev Adeyemo">Rev Adeyemo</MenuItem>
-                {/* Add more options as needed */}
-              </Select>
-            </FormControl>
-          </div>
+          <FormControl fullWidth>
+            <InputLabel>Select Who To See</InputLabel>
+            <Select
+              value={selectedPerson}
+              onChange={(e) => handlePersonChange(e.target.value)}
+            >
+              <MenuItem value="Rev Abimbola">Rev Abimbola</MenuItem>
+              <MenuItem value="Rev Adeyemo">Rev Adeyemo</MenuItem>
+              {/* Add more options as needed */}
+            </Select>
+          </FormControl>
         </Grid>
 
         <Grid item xs={12}>
-          <div>
-            <h2>What would you like to discuss?</h2>
-            <TextField
-              label="Session Details"
-              multiline
-              rows={4}
-              value={sessionDetails}
-              onChange={(e) => handleDetailsChange(e.target.value)}
-              fullWidth
-            />
-          </div>
+          <TextField
+            label="Session Details"
+            multiline
+            rows={4}
+            value={sessionDetails}
+            onChange={(e) => handleDetailsChange(e.target.value)}
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12}>
-        <Button
+          <Button
             variant="contained"
-            style={{  background: '#001F3F', // Navy blue
-            color: 'white',
-            '&:hover': {
-              background: '#001A33', // Darker shade on hover
-            }, }} // Use blue color from Material-UI
+            style={{
+              background: '#001F3F',
+              color: 'white',
+              '&:hover': {
+                background: '#001A33',
+              },
+            }}
             onClick={handleBooking}
             fullWidth
           >

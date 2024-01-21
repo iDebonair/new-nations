@@ -32,7 +32,7 @@
 
 .church-name {
   color: #212529;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .menu-container {
@@ -41,6 +41,7 @@
   margin-left: auto;
   gap: 2rem;
   z-index: 1;
+  flex-wrap: wrap;
 }
 
 .menu-item {
@@ -66,4 +67,57 @@
   gap: 0.23rem;
   font-size: 13px;
   width: 140px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #212529;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.menu-container.open {
+  flex-direction: column;
+}
+
+.menu-container.open .menu-item {
+  display: block;
+}
+
+.menu-container.open .menu-icon .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-container.open .menu-icon .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-container.open .menu-icon .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    display: none;
+  }
+
+  .menu-container.open {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .header-container.scroll {
+    height: auto;
+  }
 }
