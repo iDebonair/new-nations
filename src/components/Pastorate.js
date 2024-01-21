@@ -3,12 +3,13 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 import '../styling/Pastorate.css'; // Import the CSS file
+import LeadPastor from '../assets/leadPastor.jpg'
 
 const pastorsData = [
   {
     name: 'Rev. Dr. S.O Abimbola',
     role: 'Lead Pastor',
-    image: 'https://placekitten.com/300/300', // Replace with the actual image URL
+    image: {LeadPastor}, // Replace with the actual image URL
     bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
   {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/Header.css';
+import logo from '../assets/Church-Logo.png'
 
 const Header = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -40,7 +41,7 @@ const Header = () => {
       <div className="logo-container">
         <Link to="/" className="d-flex align-items-center text-decoration-none text-dark">
           <img
-            src="https://placekitten.com/40/40"
+            src={logo}
             alt="Church Logo"
             className="logo"
             width="40"

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Typography, Container, Grid, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Reach from '../assets/Reach.jpg'
+import Connect from '../assets/Connect.jpg'
+import about from '../assets/who-we-are.jpg'
 
 const About = () => {
   return (
@@ -16,16 +19,16 @@ const About = () => {
 
       {/* Banner Container */}
       <Container style={{ padding: '0', margin: '0', position: 'relative', marginTop:'70px' }}>
-        <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
+        <div style={{ width: '100vw', height: '800px', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
           <img
-            src={'https://source.unsplash.com/1600x200/?nature,church'} // Replace with your actual banner image URL
+            src={about} // Replace with your actual banner image URL
             alt="Banner"
             style={{ width: '100%', objectFit: 'cover' }}
           />
           {/* Text Overlay */}
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-            <Typography variant="h4" gutterBottom>
-              <strong>WHO ARE WE</strong>
+            <Typography variant="h2" style={{ fontWeight: 'bold' }}gutterBottom>
+              WHO ARE WE?
             </Typography>
           </div>
         </div>
@@ -39,9 +42,9 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <div style={{ width: '100%', height: 'auto', borderRadius: '50%', overflow: 'hidden' }}>
               <img
-                src="https://placekitten.com/400/400" // Replace with your actual picture URL
+                src={Reach} // Replace with your actual picture URL
                 alt="Reach"
-                style={{ width: '80%', height: '80%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '80%', objectFit: 'cover' }}
               />
             </div>
           </Grid>
@@ -108,9 +111,9 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <div style={{ width: '100%', height: 'auto', borderRadius: '50%', overflow: 'hidden' }}>
               <img
-                src="https://placekitten.com/400/400" // Replace with your actual picture URL
+                src={Connect} // Replace with your actual picture URL
                 alt="Connect"
-                style={{ width: '80%', height: '80%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </Grid>

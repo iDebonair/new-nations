@@ -1,6 +1,8 @@
 import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import FAQs from './FAQs';
+import churchBanner from '../assets/auditorium.jpg'
+import Ande from '../assets/Ande.jpg'
 
 const Visit = () => {
   const defaultMapLocation =
@@ -11,16 +13,16 @@ const Visit = () => {
       {/* First Banner Image */}
       <div style={{ width: '100vw', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
         <img
-          src={'https://source.unsplash.com/1600x200/?nature,church'} // Replace with your actual banner image URL
+          src={churchBanner} // Replace with your actual banner image URL
           alt="Banner"
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
         />
         {/* Text Overlay */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-          <Typography variant="h4" gutterBottom>
-            Welcome to New Nations Baptist Church
+          <Typography variant="h3"style={{ fontWeight: 'bold' }} gutterBottom>
+            New Nations Baptist Church
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body3" style={{ fontWeight: 'bold' }}>
             Join us for a transformative worship experience
           </Typography>
         </div>
@@ -45,9 +47,9 @@ const Visit = () => {
         {/* Picture */}
         <Grid item xs={12} md={6}>
           <img
-            src="https://placekitten.com/200/200" // Replace with your actual church picture URL
+            src={Ande} // Replace with your actual church picture URL
             alt="Church"
-            style={{ width: '100%', height: '200px', borderRadius: '10px' }}
+            style={{ width: '150%', height: '240px', borderRadius: '10px' }}
           />
         </Grid>
       </Grid>
@@ -75,7 +77,7 @@ const Visit = () => {
         />
                 {/* Text Overlay */}
                 <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4"style={{ fontWeight: 'bold' }} gutterBottom>
             FAQs
           </Typography>
           </div>

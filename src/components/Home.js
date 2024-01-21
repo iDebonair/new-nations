@@ -3,6 +3,7 @@
 import React from 'react';
 import { Typography, Container, Button } from '@mui/material';
 import UpcomingPrograms from './UpcomingPrograms'; // Import the UpcomingPrograms component
+import video from '../assets/it-is-well.mp4'
 
 const Home = () => {
   return (
@@ -14,9 +15,11 @@ const Home = () => {
             width="100%"
             height="auto"
             controls
+            autoPlay
+            muted
             style={{ borderRadius: '8px' }}
           >
-            <source src="https://example.com/your-video.mp4" type="video/mp4" />
+            <source src={video}type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

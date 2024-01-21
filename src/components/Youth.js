@@ -13,7 +13,7 @@ const Youth = () => {
         />
         {/* Text Overlay */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-          <Typography variant="h1" gutterBottom>
+          <Typography variant="h1" style={{ fontWeight: 'bold' }} gutterBottom>
             YOUTH UNUSUAL
           </Typography>
         </div>
