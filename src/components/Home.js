@@ -9,8 +9,8 @@ const Home = () => {
       <Container
         maxWidth="md"
         sx={{
-          marginTop: '2rem',
-          padding: '4rem',
+          marginTop: '4rem',
+          padding: '2rem', // Reduce padding for smaller screens
           textAlign: 'center',
           position: 'relative',
         }}
@@ -64,22 +64,35 @@ const Home = () => {
         </div>
 
         {/* Button Overlay */}
-        <Button
-          component="a"
-          href="/visit"
-          variant="contained"
-          size="large"
-          sx={{
+        <div
+          style={{
             position: 'absolute',
-            top: '70%',
+            top: '70%', // Adjust the top position as needed
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            background: '#001F3F',
-            color: 'white',
+            width: '80%', // Adjust button width for smaller screens
           }}
         >
-          Experience Our Service
-        </Button>
+              <Button
+            component="a"
+            href="/visit"
+            variant="contained"
+            size="large"
+            sx={{
+              background: '#001F3F',
+              color: 'white',
+              width: '60%', // Button takes full width
+              fontSize: {
+                xs: '0.6rem', // Adjust font size for smaller screens
+                sm: '1rem',
+                md: '1.2rem',
+                lg: '1.5rem',
+              },
+            }}
+          >
+            Experience Our Service
+          </Button>
+        </div>
       </Container>
 
       {/* Add UpcomingPrograms component */}

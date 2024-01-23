@@ -1,34 +1,37 @@
 import React from 'react';
-import { Typography, Container, Grid, Button } from '@mui/material';
+import { Typography, Container, Grid, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Reach from '../assets/Reach.jpg'
-import Connect from '../assets/Connect.jpg'
-import about from '../assets/who-we-are.jpg'
+import Reach from '../assets/Reach.jpg';
+import Connect from '../assets/Connect.jpg';
+import about from '../assets/who-we-are.jpg';
 
 const About = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
       <style>
         {`
           body {
-            background-color: #f0f0f0; /* Set the main background color for the page */
-            margin: 0; /* Remove default margin */
+            background-color: #f0f0f0;
+            margin: 0;
           }
         `}
       </style>
 
       {/* Banner Container */}
-      <Container style={{ padding: '0', margin: '0', position: 'relative', marginTop:'70px' }}>
-        <div style={{ width: '100vw', height: '800px', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
+      <Container style={{ padding: '0', margin: '0', position: 'relative', marginTop: '70px' }}>
+        <div style={{ width: '100vw', height: '60vh', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
           <img
-            src={about} // Replace with your actual banner image URL
+            src={about}
             alt="Banner"
             style={{ width: '100%', objectFit: 'cover' }}
           />
           {/* Text Overlay */}
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-            <Typography variant="h2" style={{ fontWeight: 'bold' }}gutterBottom>
-              WHO ARE WE?
+            <Typography variant="h2" style={{ fontWeight: 'bold', fontSize: isSmallScreen ? '2rem' : '3rem', margin: 0 }} gutterBottom>
+              WHO WE ARE
             </Typography>
           </div>
         </div>
@@ -42,7 +45,7 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <div style={{ width: '100%', height: 'auto', borderRadius: '50%', overflow: 'hidden' }}>
               <img
-                src={Reach} // Replace with your actual picture URL
+                src={Reach}
                 alt="Reach"
                 style={{ width: '100%', height: '80%', objectFit: 'cover' }}
               />
@@ -68,6 +71,7 @@ const About = () => {
                 marginTop: '2rem',
                 backgroundColor: '#001F3F',
                 color: 'white',
+                width: '30%', // Button takes full width on smaller screens
                 '&:hover': {
                   background: '#001A33', // Darker shade on hover
                 },
@@ -98,6 +102,7 @@ const About = () => {
                 marginTop: '2rem',
                 backgroundColor: '#001F3F',
                 color: 'white',
+                width: '30%', // Button takes full width on smaller screens
                 '&:hover': {
                   background: '#001A33', // Darker shade on hover
                 },
@@ -111,7 +116,7 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <div style={{ width: '100%', height: 'auto', borderRadius: '50%', overflow: 'hidden' }}>
               <img
-                src={Connect} // Replace with your actual picture URL
+                src={Connect}
                 alt="Connect"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
