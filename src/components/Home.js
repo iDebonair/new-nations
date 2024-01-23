@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Container, Button } from '@mui/material';
 import UpcomingPrograms from './UpcomingPrograms';
 import video from '../assets/it-is-well.mp4';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -75,8 +76,8 @@ const Home = () => {
           }}
         >
           <Button
-            component="a"
-            href="/visit"
+            component={Link}
+            to="/visit"
             variant="contained"
             size="large"
             sx={{
