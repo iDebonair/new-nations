@@ -1,7 +1,7 @@
 // Pastorate.js
 
 import React from 'react';
-import { Container, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
+import { Container, Typography, Card, CardContent, CardMedia } from '@mui/material';
 import '../styling/Pastorate.css'; // Import the CSS file
 import LeadPastor from '../assets/leadPastor.jpg';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, useMediaQuery, createTheme, ThemeProvider } from '@material-ui/core';
+import { Typography, Grid, useMediaQuery, createTheme } from '@material-ui/core';
 import FAQs from './FAQs';
 import ResponsiveFAQs from './ResponsiveFAQs';
 import churchBanner from '../assets/auditorium.jpg';
