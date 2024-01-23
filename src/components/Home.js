@@ -29,6 +29,7 @@ const Home = () => {
             controls
             autoPlay
             muted
+            playsInline
             style={{ borderRadius: '8px' }}
           >
             <source src={video} type="video/mp4" />
@@ -73,7 +74,7 @@ const Home = () => {
             width: '80%', // Adjust button width for smaller screens
           }}
         >
-              <Button
+          <Button
             component="a"
             href="/visit"
             variant="contained"

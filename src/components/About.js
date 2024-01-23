@@ -71,7 +71,7 @@ const About = () => {
                 marginTop: '2rem',
                 backgroundColor: '#001F3F',
                 color: 'white',
-                width: '30%', // Button takes full width on smaller screens
+                width: '40%', // Button takes full width on smaller screens
                 '&:hover': {
                   background: '#001A33', // Darker shade on hover
                 },
@@ -102,7 +102,7 @@ const About = () => {
                 marginTop: '2rem',
                 backgroundColor: '#001F3F',
                 color: 'white',
-                width: '30%', // Button takes full width on smaller screens
+                width: '40%', // Button takes full width on smaller screens
                 '&:hover': {
                   background: '#001A33', // Darker shade on hover
                 },
