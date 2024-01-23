@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import FAQs from './FAQs';
+import ResponsiveFAQs from './ResponsiveFAQs';
 import churchBanner from '../assets/auditorium.jpg';
 import Ande from '../assets/Ande.jpg';
 
@@ -13,7 +14,7 @@ const Visit = () => {
       {/* First Banner Image */}
       <div style={{ width: '100%', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
         <img
-          src={churchBanner} // Replace with your actual banner image URL
+          src={churchBanner}
           alt="Banner"
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
         />
@@ -29,7 +30,7 @@ const Visit = () => {
       </div>
 
       {/* Church Address and Picture */}
-      <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ width: '50%', margin: '1em auto' }}>
+      <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ width: '90%', margin: '1em auto' }}>
         <Grid item xs={12} md={6}>
           <Typography variant="body1" style={{ textAlign: 'center' }}>
             1, Aderibigbe Shitta, Maryland, Lagos
@@ -46,7 +47,7 @@ const Visit = () => {
         {/* Picture */}
         <Grid item xs={12} md={6}>
           <img
-            src={Ande} // Replace with your actual church picture URL
+            src={Ande}
             alt="Church"
             style={{ width: '100%', height: 'auto', maxWidth: '400px', borderRadius: '10px' }}
           />
@@ -70,7 +71,7 @@ const Visit = () => {
       {/* Second Banner Image */}
       <div style={{ width: '100%', overflow: 'hidden', position: 'relative', marginTop: '20px', marginBottom: '40px' }}>
         <img
-          src="https://source.unsplash.com/1600x200/?nature,church" // Replace with your actual banner image URL
+          src="https://source.unsplash.com/1600x200/?nature,church"
           alt="Banner"
           style={{ width: '100%', height: '250px', objectFit: 'cover' }}
         />
@@ -83,7 +84,12 @@ const Visit = () => {
       </div>
 
       {/* FAQs Section */}
-      <FAQs />
+      {/* Use media query to conditionally render the FAQ component */}
+      {window.innerWidth > 768 ? (
+        <FAQs />
+      ) : (
+        <ResponsiveFAQs />
+      )}
     </div>
   );
 };

@@ -1,0 +1,24 @@
+/* Your existing CSS styles here */
+
+@media (max-width: 768px) {
+    /* Styles for small screens */
+    .faq-container {
+      display: none; /* Hide large-screen FAQs */
+    }
+  
+    .responsive-faq-container {
+      display: block; /* Show small-screen FAQs */
+    }
+  }
+  
+  @media (min-width: 769px) {
+    /* Styles for larger screens */
+    .faq-container {
+      display: block; /* Show large-screen FAQs */
+    }
+  
+    .responsive-faq-container {
+      display: none; /* Hide small-screen FAQs */
+    }
+  }
+  

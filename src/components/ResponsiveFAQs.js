@@ -1,20 +1,22 @@
+// ResponsiveFAQs.js
+
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-const FAQs = () => {
+const ResponsiveFAQs = () => {
   return (
-    <div style={{ display: 'flex', margin: '10px', justifyContent:'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', margin: '10px', textAlign: 'center' }}>
       {/* FAQ Header Container */}
-      <div style={{ marginRight: '10px', width: '13%', color:'grey' }}>
+      <div style={{ marginBottom: '20px', color: 'grey' }}>
         <Typography variant="h4" gutterBottom>
           Frequently Asked Questions
         </Typography>
       </div>
 
       {/* FAQs Container */}
-      <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '30%' }}>
+      <div style={{ width: '100%' }}>
         {/* FAQ 1 */}
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '20px' }}>
           <Typography variant="body1">
             <strong>WHERE DO I PARK AND ENTER?</strong>
           </Typography>
@@ -24,7 +26,7 @@ const FAQs = () => {
         </div>
 
         {/* FAQ 2 */}
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '20px' }}>
           <Typography variant="body1">
             <strong>WHAT SHOULD I WEAR?</strong>
           </Typography>
@@ -34,7 +36,7 @@ const FAQs = () => {
         </div>
 
         {/* FAQ 3 */}
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '20px' }}>
           <Typography variant="body1">
             <strong>WHAT TO EXPECT DURING WORSHIP</strong>
           </Typography>
@@ -48,4 +50,4 @@ const FAQs = () => {
   );
 };
 
-export default FAQs;
+export default ResponsiveFAQs;
