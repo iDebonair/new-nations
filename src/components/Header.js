@@ -56,6 +56,14 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const toggleSubMenu = (menu) => {
+    if (menu === 'about') {
+      setAboutMenuOpen(!aboutMenuOpen);
+    } else if (menu === 'grow') {
+      setGrowMenuOpen(!growMenuOpen);
+    }
+  };
+
   return (
     <>
       <div className={`header-container${scrolling || menuOpen ? ' scroll' : ''}`}>
@@ -71,9 +79,17 @@ const Header = () => {
             onMouseOver={() => handleMouseOver('about')}
             onMouseLeave={() => setAboutMenuOpen(false)}
           >
-            <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
-              ABOUT
-            </Link>
+            <div className="menu-item-container">
+              <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
+                ABOUT
+              </Link>
+              {/* Plus button next to ABOUT */}
+              {window.innerWidth <= 768 && (
+                <div className="plus-button" onClick={() => toggleSubMenu('about')}>
+                  +
+                </div>
+              )}
+            </div>
             {aboutMenuOpen && (
               <div className="sub-menu">
                 <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
@@ -96,9 +112,17 @@ const Header = () => {
             onMouseOver={() => handleMouseOver('grow')}
             onMouseLeave={() => setGrowMenuOpen(false)}
           >
-            <Link to="/grow" className="menu-item" onClick={handleCloseMenu}>
-              GROW
-            </Link>
+            <div className="menu-item-container">
+              <Link to="/grow" className="menu-item" onClick={handleCloseMenu}>
+                GROW
+              </Link>
+              {/* Plus button next to GROW */}
+              {window.innerWidth <= 768 && (
+                <div className="plus-button" onClick={() => toggleSubMenu('grow')}>
+                  +
+                </div>
+              )}
+            </div>
             {growMenuOpen && (
               <div className="sub-menu">
                 <Link to="/baptism" className="menu-item" onClick={handleCloseMenu}>
