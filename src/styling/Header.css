@@ -57,11 +57,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
-.plus-button{
-margin-left: 500px;
-}
 
 .menu-item {
   text-decoration: none;
@@ -149,8 +147,17 @@ margin-left: 500px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    width: 100%;
   }
 
+  .menu-item {
+    text-decoration: none;
+    color: #212529;
+    margin: 0.5rem;
+    transition: background-color 0.4s, color 0.4s;
+    order: 0;
+  }
+  
   .header-container.scroll {
     height: auto;
   }

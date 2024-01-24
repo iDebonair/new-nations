@@ -86,7 +86,7 @@ const Header = () => {
               {/* Plus button next to ABOUT */}
               {window.innerWidth <= 768 && (
                 <div className="plus-button" onClick={() => toggleSubMenu('about')}>
-                  +
+                  <strong>+</strong>
                 </div>
               )}
             </div>
@@ -119,7 +119,7 @@ const Header = () => {
               {/* Plus button next to GROW */}
               {window.innerWidth <= 768 && (
                 <div className="plus-button" onClick={() => toggleSubMenu('grow')}>
-                  +
+                 <strong>+</strong>
                 </div>
               )}
             </div>
