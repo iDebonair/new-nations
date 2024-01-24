@@ -80,7 +80,7 @@ const Header = () => {
             onMouseLeave={() => setAboutMenuOpen(false)}
           >
             <div className="menu-item-container">
-              <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
+              <Link to="/about" className={`menu-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`} onClick={handleCloseMenu}>
                 ABOUT
               </Link>
               {/* Plus button next to ABOUT */}
@@ -113,7 +113,7 @@ const Header = () => {
             onMouseLeave={() => setGrowMenuOpen(false)}
           >
             <div className="menu-item-container">
-              <Link to="/grow" className="menu-item" onClick={handleCloseMenu}>
+              <Link to="/grow" className={`menu-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`} onClick={handleCloseMenu}>
                 GROW
               </Link>
               {/* Plus button next to GROW */}

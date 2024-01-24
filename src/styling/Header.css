@@ -53,6 +53,15 @@ body {
   transition: max-height 0.4s ease, flex-direction 0.4s ease; 
 }
 
+.menu-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plus-button{
+margin-left: 500px;
+}
 
 .menu-item {
   text-decoration: none;
