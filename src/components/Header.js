@@ -84,9 +84,11 @@ const Header = () => {
             onMouseOver={() => handleMouseOver('grow')}
             onMouseLeave={() => setGrowMenuOpen(false)}
           >
-            <Link to="/grow" className="menu-item" onClick={handleCloseMenu}>
-              GROW
-            </Link>
+            <div className="grow-menu-item">
+              <Link to="/grow" className="menu-item" onClick={handleCloseMenu}>
+                GROW
+              </Link>
+            </div>
             {growMenuOpen && (
               <div className="sub-menu">
                 <Link to="/baptism" className="menu-item" onClick={handleCloseMenu}>
@@ -119,8 +121,29 @@ const Header = () => {
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
       </div>
+
+      {/* Render angle brackets in front of the menu items on small screens */}
+      {menuOpen && window.innerWidth <= 768 && (
+        <>
+          <div className="angle-bracket"></div>
+          <div className="angle-bracket">&#43;</div>
+          <div className="angle-bracket">&#43;</div>
+        </>
+      )}
+      {/* Close menu after clicking on the angle bracket */}
+      {menuOpen && window.innerWidth <= 768 && (
+        <div className="menu-item" onClick={handleCloseMenu}>
+          ABOUT
+        </div>
+      )}
+      {menuOpen && window.innerWidth <= 768 && (
+        <div className="menu-item" onClick={handleCloseMenu}>
+          GROW
+        </div>
+      )}
     </>
   );
 };
 
 export default Header;
+

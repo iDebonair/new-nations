@@ -16,6 +16,7 @@ body {
   width: 100%;
   transition: height 2s ease, background-color 1s ease, box-shadow 1s ease;
   font-size: 13px;
+  justify-content: space-between;
 }
 
 .header-container.scroll {
@@ -42,13 +43,14 @@ body {
 .menu-container {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin-left: auto;
   gap: 2rem;
   z-index: 1;
   flex-wrap: wrap;
-  overflow: hidden; /* Add this line to hide overflow content */
-  max-height: 1000px; /* Add this line to set a maximum height */
-  transition: max-height 0.4s ease, flex-direction 0.4s ease; /* Update the transition property */
+  overflow: hidden; /* hide overflow content */
+  max-height: 1000px; /* set a maximum height */
+  transition: max-height 0.4s ease, flex-direction 0.4s ease; 
 }
 
 
@@ -57,6 +59,19 @@ body {
   color: #212529;
   margin: 0.5rem;
   transition: background-color 0.4s, color 0.4s;
+  order: 0;
+}
+
+.grow-menu-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
 }
 
 .menu-item:hover {
@@ -91,28 +106,40 @@ body {
   width: 25px;
   height: 3px;
   background-color: grey;
-  margin: 4px 0;
+  margin: 2px 0;
   transition: 0.4s;
+}
+
+/* Add this to your existing CSS */
+.angle-bracket {
+  font-size: 1rem; /* Adjust the font size as needed */
+  margin-left: 5px; /* Adjust the margin as needed */
+  display: inline-block;
+  order: 1;
 }
 
 
 @media (max-width: 768px) {
   .menu-icon {
     display: flex;
+    padding-top: 18px;
+    padding-right: 10px;
   }
 
   .menu-container {
     flex-direction: column;
     display: none;
     position: fixed;
-    top: 60px; /* Adjust the top position to leave space for the header */
-    right: 0;
-    width: 100%;
+    top: 70px; /* Adjust the top position to leave space for the header */
+    width: 90%;
     background-color: hsl(210, 20%, 98%);
+    
   }
 
   .menu-container.open {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
   .header-container.scroll {
