@@ -1,6 +1,6 @@
 // Header.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/Header.css';
 import logo from '../assets/Church-Logo.png';
@@ -10,6 +10,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [growMenuOpen, setGrowMenuOpen] = useState(false);
+  const menuIconRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +18,23 @@ const Header = () => {
       setScrolling(isScrolling);
     };
 
+    const handleOutsideClick = (event) => {
+      if (menuOpen && menuIconRef.current && !menuIconRef.current.contains(event.target)) {
+        // Click occurred outside the menu icon, close the menu
+        setAboutMenuOpen(false);
+        setGrowMenuOpen(false);
+        setMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('click', handleOutsideClick);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('click', handleOutsideClick);
     };
-  }, []);
+  }, [menuOpen]);
 
   const handleMouseOver = (menu) => {
     if (menu === 'about') {
@@ -114,12 +126,11 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="menu-icon" onClick={toggleMenu}>
+      <div className="menu-icon" onClick={toggleMenu} ref={menuIconRef}>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
         <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
       </div>
-      
     </>
   );
 };
