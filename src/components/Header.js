@@ -69,12 +69,14 @@ const Header = () => {
   const handleAboutClick = () => {
     if (isAboutSubMenuOpen) {
       setIsAboutSubMenuOpen(false);
+      setAboutMenuOpen(false);
     }
   };
   
   const handleGrowClick = () => {
     if (isGrowSubMenuOpen) {
       setIsGrowSubMenuOpen(false);
+      setGrowMenuOpen(false);
     }
   };
 
@@ -89,80 +91,79 @@ const Header = () => {
         </div>
   
         <div className={`menu-container${menuOpen ? ' open' : ''}`}>
-          <div
-            onMouseOver={() => handleMouseOver('about')}
-            onMouseLeave={() => setAboutMenuOpen(false)}
-          >
-            <div className="menu-item-container">
-              <Link
-                to="/about"
-                className={`menu-item about-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
-                onClick={() => {
-                  handleCloseMenu();
-                  handleAboutClick();
-                }}
-              >
-                ABOUT
-              </Link>
-              {/* Plus button next to ABOUT */}
-              {window.innerWidth <= 768 && (
-                <div className="plus-button" onClick={() => toggleSubMenu('about')}>
-                  {isAboutSubMenuOpen ? '-' : '+'}
-                </div>
-              )}
-            </div>
-            {aboutMenuOpen && (
-              <div className={`sub-menu${isAboutSubMenuOpen ? ' open' : ''}`}>
-                <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
-                  WHO WE ARE
-                </Link>
-                <Link to="/pastorate" className="menu-item" onClick={handleCloseMenu}>
-                  PASTORATE
-                </Link>
-                <Link to="/youth-unusual" className="menu-item" onClick={handleCloseMenu}>
-                  YOUTH UNUSUAL
-                </Link>
-                <Link to="/ministries" className="menu-item" onClick={handleCloseMenu}>
-                  MINISTRIES
-                </Link>
+        <div
+          onMouseOver={() => handleMouseOver('about')}
+          onMouseLeave={() => setAboutMenuOpen(false)}
+        >
+          <div className="menu-item-container">
+            <Link
+              to="/about"
+              className={`menu-item about-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
+              onClick={() => {
+                handleCloseMenu();
+                handleAboutClick();
+              }}
+            >
+              ABOUT
+            </Link>
+            {/* Plus button next to ABOUT */}
+            {window.innerWidth <= 768 && (
+              <div className="plus-button" onClick={() => toggleSubMenu('about')}>
+                {isAboutSubMenuOpen ? '-' : '+'}
               </div>
             )}
           </div>
-  
+          {aboutMenuOpen && (
+            <div className={`sub-menu${isAboutSubMenuOpen ? ' open' : ''}`}>
+              <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
+                WHO WE ARE
+              </Link>
+              <Link to="/pastorate" className="menu-item" onClick={handleCloseMenu}>
+                PASTORATE
+              </Link>
+              <Link to="/youth-unusual" className="menu-item" onClick={handleCloseMenu}>
+                YOUTH UNUSUAL
+              </Link>
+              <Link to="/ministries" className="menu-item" onClick={handleCloseMenu}>
+                MINISTRIES
+              </Link>
+            </div>
+          )}
+        </div>
 
-          <div
-            onMouseOver={() => handleMouseOver('grow')}
-            onMouseLeave={() => setGrowMenuOpen(false)}
-          >
-            <div className="menu-item-container">
-              <Link
-                to="/grow"
-                className={`menu-item grow-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
-                onClick={() => {
-                  handleCloseMenu();
-                  handleGrowClick();
-                }}
-              >
-                GROW
-              </Link>
-              {/* Plus button next to GROW */}
-              {window.innerWidth <= 768 && (
-                <div className="plus-button" onClick={() => toggleSubMenu('grow')}>
-                  {isGrowSubMenuOpen ? '-' : '+'}
-                </div>
-              )}
-            </div>
-            {growMenuOpen && (
-              <div className={`sub-menu${isGrowSubMenuOpen ? ' open' : ''}`}>
-                <Link to="/baptism" className="menu-item" onClick={handleCloseMenu}>
-                  BAPTISM
-                </Link>
-                <Link to="/member-database" className="menu-item" onClick={handleCloseMenu}>
-                  MEMBERSHIP
-                </Link>
+        <div
+          onMouseOver={() => handleMouseOver('grow')}
+          onMouseLeave={() => setGrowMenuOpen(false)}
+        >
+          <div className="menu-item-container">
+            <Link
+              to="/grow"
+              className={`menu-item grow-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
+              onClick={() => {
+                handleCloseMenu();
+                handleGrowClick();
+              }}
+            >
+              GROW
+            </Link>
+            {/* Plus button next to GROW */}
+            {window.innerWidth <= 768 && (
+              <div className="plus-button" onClick={() => toggleSubMenu('grow')}>
+                {isGrowSubMenuOpen ? '-' : '+'}
               </div>
             )}
           </div>
+          {growMenuOpen && (
+            <div className={`sub-menu${isGrowSubMenuOpen ? ' open' : ''}`}>
+              <Link to="/baptism" className="menu-item" onClick={handleCloseMenu}>
+                BAPTISM
+              </Link>
+              <Link to="/member-database" className="menu-item" onClick={handleCloseMenu}>
+                MEMBERSHIP
+              </Link>
+            </div>
+          )}
+        </div>
 
           {/* <Link to="/live-stream" className="menu-item live-stream-item" onClick={handleCloseMenu}>
             STREAM LIVE
