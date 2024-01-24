@@ -147,17 +147,18 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
   }
 
-  .menu-item {
+  .menu-item grow-item {
     text-decoration: none;
     color: #212529;
     margin: 0.5rem;
     transition: background-color 0.4s, color 0.4s;
     order: 0;
+    width: 100%;
   }
-  
+
   .header-container.scroll {
     height: auto;
   }

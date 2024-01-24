@@ -10,6 +10,8 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [growMenuOpen, setGrowMenuOpen] = useState(false);
+  const [isAboutSubMenuOpen, setIsAboutSubMenuOpen] = useState(false);
+  const [isGrowSubMenuOpen, setIsGrowSubMenuOpen] = useState(false);
   const menuIconRef = useRef(null);
 
   useEffect(() => {
@@ -58,9 +60,9 @@ const Header = () => {
 
   const toggleSubMenu = (menu) => {
     if (menu === 'about') {
-      setAboutMenuOpen(!aboutMenuOpen);
+      setIsAboutSubMenuOpen(!isAboutSubMenuOpen);
     } else if (menu === 'grow') {
-      setGrowMenuOpen(!growMenuOpen);
+      setIsGrowSubMenuOpen(!isGrowSubMenuOpen);
     }
   };
 
@@ -80,18 +82,22 @@ const Header = () => {
             onMouseLeave={() => setAboutMenuOpen(false)}
           >
             <div className="menu-item-container">
-              <Link to="/about" className={`menu-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`} onClick={handleCloseMenu}>
+              <Link
+                to="/about"
+                className={`menu-item about-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
+                onClick={handleCloseMenu}
+              >
                 ABOUT
               </Link>
               {/* Plus button next to ABOUT */}
               {window.innerWidth <= 768 && (
                 <div className="plus-button" onClick={() => toggleSubMenu('about')}>
-                  <strong>+</strong>
+                  {isAboutSubMenuOpen ? '-' : '+'}
                 </div>
               )}
             </div>
             {aboutMenuOpen && (
-              <div className="sub-menu">
+              <div className={`sub-menu${isAboutSubMenuOpen ? ' open' : ''}`}>
                 <Link to="/about" className="menu-item" onClick={handleCloseMenu}>
                   WHO WE ARE
                 </Link>
@@ -113,18 +119,22 @@ const Header = () => {
             onMouseLeave={() => setGrowMenuOpen(false)}
           >
             <div className="menu-item-container">
-              <Link to="/grow" className={`menu-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`} onClick={handleCloseMenu}>
+              <Link
+                to="/grow"
+                className={`menu-item grow-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
+                onClick={handleCloseMenu}
+              >
                 GROW
               </Link>
               {/* Plus button next to GROW */}
               {window.innerWidth <= 768 && (
                 <div className="plus-button" onClick={() => toggleSubMenu('grow')}>
-                 <strong>+</strong>
+                  {isGrowSubMenuOpen ? '-' : '+'}
                 </div>
               )}
             </div>
             {growMenuOpen && (
-              <div className="sub-menu">
+              <div className={`sub-menu${isGrowSubMenuOpen ? ' open' : ''}`}>
                 <Link to="/baptism" className="menu-item" onClick={handleCloseMenu}>
                   BAPTISM
                 </Link>
@@ -135,16 +145,16 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/live-stream" className="menu-item" onClick={handleCloseMenu}>
+          {/* <Link to="/live-stream" className="menu-item live-stream-item" onClick={handleCloseMenu}>
             STREAM LIVE
-          </Link>
-          <Link to="/visit" className="menu-item" onClick={handleCloseMenu}>
+          </Link> */}
+          <Link to="/visit" className="menu-item visit-item" onClick={handleCloseMenu}>
             VISIT
           </Link>
-          <Link to="/calendar" className="menu-item" onClick={handleCloseMenu}>
+          <Link to="/calendar" className="menu-item calendar-item" onClick={handleCloseMenu}>
             NEED PRAYER?
           </Link>
-          <Link to="/offering" className="menu-item" onClick={handleCloseMenu}>
+          <Link to="/offering" className="menu-item donate-item" onClick={handleCloseMenu}>
             DONATE
           </Link>
         </div>
