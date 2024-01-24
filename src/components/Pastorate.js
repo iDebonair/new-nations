@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Container, Typography, Card, CardContent, CardMedia } from '@mui/material';
-import '../styling/Pastorate.css'; // Import the CSS file
+import '../styling/Pastorate.css'; // Import the modified CSS file
 import LeadPastor from '../assets/leadPastor.jpg';
 
 const pastorsData = [
@@ -24,15 +24,15 @@ const Pastorate = () => {
   return (
     <Container sx={{ marginTop: '4rem', padding: '2rem' }}>
       {pastorsData.map((pastor, index) => (
-        <Card key={index} sx={{ display: 'flex', marginBottom: '2rem' }}>
+        <Card key={index} className="card">
           <CardMedia
             component="img"
             height="300"
             image={pastor.image}
             alt={pastor.name}
-            sx={{ width: 300, objectFit: 'cover' }}
+            className="card-img"
           />
-          <CardContent>
+          <CardContent className="card-content">
             <Typography variant="h5" gutterBottom>
               {pastor.name}
             </Typography>

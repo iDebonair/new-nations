@@ -1,29 +1,41 @@
 /* Pastorate.css */
 
-.pastor-profiles {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .pastor {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .text-container {
-    margin-left: 20px;
-    width: 50%;
+/* Default styling for cards */
+.card {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+/* Styling for screens larger than 600px */
+@media (min-width: 600px) {
+  .card {
+    flex-direction: row;
   }
 
-  .pastor img {
-    border-radius: 50%; /* Adjust the border-radius value as needed */
+  .card img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
   }
-  
-  .lead-pastor {
-    /* Add any specific styles for the lead pastor profile here */
+
+  .card-content {
+    padding: 1rem;
   }
-  
-  .associate-pastor {
-    /* Add any specific styles for the associate pastor profile here */
+}
+
+/* Styling for screens smaller than 600px */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
   }
-  
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+}
