@@ -66,6 +66,18 @@ const Header = () => {
     }
   };
 
+  const handleAboutClick = () => {
+    if (isAboutSubMenuOpen) {
+      setIsAboutSubMenuOpen(false);
+    }
+  };
+  
+  const handleGrowClick = () => {
+    if (isGrowSubMenuOpen) {
+      setIsGrowSubMenuOpen(false);
+    }
+  };
+
   return (
     <>
       <div className={`header-container${scrolling || menuOpen ? ' scroll' : ''}`}>
@@ -75,7 +87,7 @@ const Header = () => {
             <div className="text-dark fs-5">New Nations Baptist Church</div>
           </Link>
         </div>
-
+  
         <div className={`menu-container${menuOpen ? ' open' : ''}`}>
           <div
             onMouseOver={() => handleMouseOver('about')}
@@ -85,7 +97,10 @@ const Header = () => {
               <Link
                 to="/about"
                 className={`menu-item about-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
-                onClick={handleCloseMenu}
+                onClick={() => {
+                  handleCloseMenu();
+                  handleAboutClick();
+                }}
               >
                 ABOUT
               </Link>
@@ -113,6 +128,7 @@ const Header = () => {
               </div>
             )}
           </div>
+  
 
           <div
             onMouseOver={() => handleMouseOver('grow')}
@@ -122,7 +138,10 @@ const Header = () => {
               <Link
                 to="/grow"
                 className={`menu-item grow-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
-                onClick={handleCloseMenu}
+                onClick={() => {
+                  handleCloseMenu();
+                  handleGrowClick();
+                }}
               >
                 GROW
               </Link>
