@@ -49,7 +49,7 @@
       z-index: 1;
       width: 250px; /* Adjust the width as needed */
       flex-direction: column;
-      top: 40px;
+      top: 54px;
     }
   
     .nav.open {

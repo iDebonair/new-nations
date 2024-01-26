@@ -2,46 +2,55 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '../styling/MobileNav.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+
 const MobileNav = ({ menuOpen, toggleMenu }) => {
-  const [isAboutSubMenuOpen, setIsAboutSubMenuOpen] = useState(false);
-  const [isGrowSubMenuOpen, setIsGrowSubMenuOpen] = useState(false);
-  const containerRef = useRef(null);
-
-  const handleAboutSubMenuClick = () => {
-    setIsAboutSubMenuOpen(!isAboutSubMenuOpen);
-    setIsGrowSubMenuOpen(false);
-  };
-
-  const handleGrowSubMenuClick = () => {
-    setIsGrowSubMenuOpen(!isGrowSubMenuOpen);
-    setIsAboutSubMenuOpen(false);
-  };
-
-  const handleBackClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation(); // Stop event propagation
-    if (isAboutSubMenuOpen) {
-      setIsAboutSubMenuOpen(false);
-    } else if (isGrowSubMenuOpen) {
+    const [isAboutSubMenuOpen, setIsAboutSubMenuOpen] = useState(false);
+    const [isGrowSubMenuOpen, setIsGrowSubMenuOpen] = useState(false);
+    const [userClosedMenu, setUserClosedMenu] = useState(false);
+    const containerRef = useRef(null);
+  
+    const handleAboutSubMenuClick = () => {
+      setIsAboutSubMenuOpen(!isAboutSubMenuOpen);
       setIsGrowSubMenuOpen(false);
-    }
-  }
-  const handleClickOutside = useCallback((e) => {
-    if (containerRef.current && !containerRef.current.contains(e.target)) {
-      toggleMenu();
-    }
-  }, [containerRef, toggleMenu]);
-
-  useEffect(() => {
-    const handleDocumentClick = (e) => handleClickOutside(e);
-
-    document.addEventListener('click', handleDocumentClick);
-
-    return () => {
-      document.removeEventListener('click', handleDocumentClick);
+      setUserClosedMenu(false); // User intentionally opened the menu
     };
-  }, [handleClickOutside]);
-
+  
+    const handleGrowSubMenuClick = () => {
+      setIsGrowSubMenuOpen(!isGrowSubMenuOpen);
+      setIsAboutSubMenuOpen(false);
+      setUserClosedMenu(false); // User intentionally opened the menu
+    };
+  
+    const handleBackClick = (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // Stop event propagation
+      if (isAboutSubMenuOpen) {
+        setIsAboutSubMenuOpen(false);
+      } else if (isGrowSubMenuOpen) {
+        setIsGrowSubMenuOpen(false);
+      }
+      setUserClosedMenu(true); // User intentionally closed the menu
+    };
+  
+    const handleClickOutside = useCallback(
+        (e) => {
+          if (menuOpen && !userClosedMenu && containerRef.current && !containerRef.current.contains(e.target) && !e.target.closest('.menu-icon')) {
+            toggleMenu();
+          }
+        },
+        [containerRef, toggleMenu, userClosedMenu, menuOpen]
+      );
+  
+    useEffect(() => {
+      const handleDocumentClick = (e) => handleClickOutside(e);
+  
+      window.addEventListener('click', handleDocumentClick);
+  
+      return () => {
+        window.removeEventListener('click', handleDocumentClick);
+      };
+    }, [handleClickOutside]);
+  
   const renderSubMenu = (items) => {
     return (
       <ul className="sub-nav">
