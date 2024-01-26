@@ -42,7 +42,7 @@
       padding: 0;
       margin: 0;
       display: none;
-      background-color: #fff;
+      background-color: hsl(210, 20%, 98%);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       position: absolute;
       right: -27px;
@@ -62,11 +62,13 @@
   
     .nav__link {
       text-decoration: none;
-      color: #333;
+      color: #212529;
       display: block;
-      padding: 8px;
+      padding: 12px;
       position: relative;
       border: none;
+      font-size: medium;
+      background-color:hsl(210, 20%, 98%) ;
     }
   
     .nav__link:hover {
