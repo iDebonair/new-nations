@@ -1,13 +1,11 @@
-// MobileNav.js
-
-import React, { useState, useEffect} from 'react';
-import $ from 'jquery';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '../styling/MobileNav.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const MobileNav = ({ menuOpen, toggleMenu }) => {
   const [isAboutSubMenuOpen, setIsAboutSubMenuOpen] = useState(false);
   const [isGrowSubMenuOpen, setIsGrowSubMenuOpen] = useState(false);
+  const containerRef = useRef(null);
 
   const handleAboutSubMenuClick = () => {
     setIsAboutSubMenuOpen(!isAboutSubMenuOpen);
@@ -21,29 +19,50 @@ const MobileNav = ({ menuOpen, toggleMenu }) => {
 
   const handleBackClick = (e) => {
     e.preventDefault();
-    setIsAboutSubMenuOpen(false);
-    setIsGrowSubMenuOpen(false);
+    e.stopPropagation(); // Stop event propagation
+    if (isAboutSubMenuOpen) {
+      setIsAboutSubMenuOpen(false);
+    } else if (isGrowSubMenuOpen) {
+      setIsGrowSubMenuOpen(false);
+    }
+  }
+  const handleClickOutside = useCallback((e) => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      toggleMenu();
+    }
+  }, [containerRef, toggleMenu]);
+
+  useEffect(() => {
+    const handleDocumentClick = (e) => handleClickOutside(e);
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, [handleClickOutside]);
+
+  const renderSubMenu = (items) => {
+    return (
+      <ul className="sub-nav">
+        <li className="sub-nav__item">
+          <a className="sub-nav__link" href="/about" onClick={handleBackClick}>
+            <i className="fas fa-chevron-left"></i> <i>Back</i>
+          </a>
+        </li>
+        {items.map((item, index) => (
+          <li key={index} className="sub-nav__item">
+            <a className="sub-nav__link" href={item.link}>
+              <strong>{item.label}</strong>
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
   };
 
-  // Dynamically add Back button to sub-menu on mount
-  useEffect(() => {
-    if (isAboutSubMenuOpen || isGrowSubMenuOpen) {
-      $('.nav__sub').prepend(
-        '<li class="nav__item"><a class="nav__link sub__close" href="#"><i class="fas fa-chevron-left"></i> Back</a></li>'
-      );
-
-      // Close out sub menu when Back is clicked
-      $('.sub__close').click(function (e) {
-        e.preventDefault();
-        $(this).parent().parent().removeClass('is-active');
-        setIsAboutSubMenuOpen(false);
-        setIsGrowSubMenuOpen(false);
-      });
-    }
-  }, [isAboutSubMenuOpen, isGrowSubMenuOpen]);
-
   return (
-    <div className={`mobile-nav-container${menuOpen ? ' open' : ''}`}>
+    <div className={`mobile-nav-container${menuOpen ? ' open' : ''}`} ref={containerRef}>
       <div className="menu-icon" onClick={toggleMenu}>
         <div className="bar"></div>
         <div className="bar"></div>
@@ -58,35 +77,12 @@ const MobileNav = ({ menuOpen, toggleMenu }) => {
             >
               About <i className="fas fa-chevron-right"></i>
             </button>
-            {isAboutSubMenuOpen && (
-              <ul className="sub-nav">
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/about" onClick={handleBackClick}>
-                    <i className="fas fa-chevron-left"></i> <i>Back</i>
-                  </a>
-                </li>
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/about">
-                    <strong>Who We Are</strong>
-                  </a>
-                </li>
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/pastorate">
-                    <strong>Pastorate</strong>
-                  </a>
-                </li>
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/youth-unusual">
-                    <strong>Youth Unusual</strong>
-                  </a>
-                </li>
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/ministries">
-                    <strong>Ministries</strong>
-                  </a>
-                </li>
-              </ul>
-            )}
+            {isAboutSubMenuOpen && renderSubMenu([
+              { label: 'Who We Are', link: '/about' },
+              { label: 'Pastorate', link: '/pastorate' },
+              { label: 'Youth Unusual', link: '/youth-unusual' },
+              { label: 'Ministries', link: '/ministries' },
+            ])}
           </li>
           <li className={`nav__item${isGrowSubMenuOpen ? ' is-active' : ''}`}>
             <button
@@ -95,25 +91,10 @@ const MobileNav = ({ menuOpen, toggleMenu }) => {
             >
               Grow <i className="fas fa-chevron-right"></i>
             </button>
-            {isGrowSubMenuOpen && (
-              <ul className="sub-nav">
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/about" onClick={handleBackClick}>
-                    <i className="fas fa-chevron-left"></i> <i>Back</i>
-                  </a>
-                </li>
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/baptism">
-                    <strong>baptism</strong>
-                  </a>
-                </li>
-                <li className="sub-nav__item">
-                  <a className="sub-nav__link" href="/member-database">
-                    <strong>Membership</strong>
-                  </a>
-                </li>
-              </ul>
-            )}
+            {isGrowSubMenuOpen && renderSubMenu([
+              { label: 'Baptism', link: '/baptism' },
+              { label: 'Membership', link: '/member-database' },
+            ])}
           </li>
           <li className="nav__item">
             <a className="nav__link" href="/visit">
