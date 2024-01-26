@@ -1,0 +1,101 @@
+/* MobileNav.css */
+
+@media screen and (max-width: 768px) {
+    .mobile-nav-container {
+      position: relative;
+    }
+  
+    .church-name {
+      color: #212529;
+      font-size: 1rem;
+    }
+  
+    .menu-icon {
+      display: block;
+      position: absolute;
+      right: 5px;
+      cursor: pointer;
+    }
+  
+    .menu-icon.open .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+  
+    .menu-icon.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .menu-icon.open .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  
+    .bar {
+      width: 30px;
+      height: 3px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  
+    .nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      right: -27px;
+      z-index: 1;
+      width: 250px; /* Adjust the width as needed */
+      flex-direction: column;
+      top: 40px;
+    }
+  
+    .nav.open {
+      display: flex;
+    }
+  
+    .nav__item {
+      margin-bottom: 8px;
+    }
+  
+    .nav__link {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 8px;
+      position: relative;
+      border: none;
+    }
+  
+    .nav__link:hover {
+      background-color: #eee;
+    }
+  
+    .is-active {
+      background-color: #eee;
+    }
+  
+    .sub-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .sub-nav__item {
+      margin-bottom: 8px;
+    }
+  
+    .sub-nav__link {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 8px;
+    }
+  
+    .sub-nav__link:hover {
+      background-color: #eee;
+    }
+   
+  }

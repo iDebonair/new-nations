@@ -6,7 +6,7 @@ body {
 
 .header-container {
   display: flex;
-  background-color: hsl(210, 20%, 98%);
+  background-color: inherit;
   padding: 1rem;
   padding-right: 30px;
   z-index: 1000;
@@ -14,14 +14,17 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  transition: height 2s ease, background-color 1s ease, box-shadow 1s ease;
+  transition: height 2s ease, box-shadow 1s ease;
   font-size: 13px;
   justify-content: space-between;
+  text-decoration: none;
 }
 
 .header-container.scroll {
   height: 60px; /* Set the reduced height as needed */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  background-color: hsl(210, 20%, 98%);
 }
 
 .logo-container {
@@ -30,6 +33,8 @@ body {
   text-decoration: none;
 }
 
+/* Media query for reducing size on small screens */
+
 .logo {
   margin-right: 0.5rem;
   border-radius: 50%;
@@ -37,7 +42,7 @@ body {
 
 .church-name {
   color: #212529;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .menu-container {
@@ -99,68 +104,6 @@ body {
   width: 140px;
 }
 
-.menu-icon {
-  cursor: pointer;
-  position: fixed;
-  top: 10px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
-  z-index: 1100; /* Ensure it's above header-container */
-  display: none;
-  flex-direction: column;
-}
-
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: grey;
-  margin: 2px 0;
-  transition: 0.4s;
-}
-
-/* Add this to your existing CSS */
-.angle-bracket {
-  font-size: 1rem; /* Adjust the font size as needed */
-  margin-left: 5px; /* Adjust the margin as needed */
-  display: inline-block;
-  order: 1;
-}
 
 
-@media (max-width: 768px) {
-  .menu-icon {
-    display: flex;
-    padding-top: 18px;
-    padding-right: 10px;
-  }
-
-  .menu-container {
-    flex-direction: column;
-    display: none;
-    position: fixed;
-    top: 70px; /* Adjust the top position to leave space for the header */
-    width: 90%;
-    background-color: hsl(210, 20%, 98%);
-    
-  }
-
-  .menu-container.open {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 90%;
-  }
-
-  .menu-item grow-item {
-    text-decoration: none;
-    color: #212529;
-    margin: 0.5rem;
-    transition: background-color 0.4s, color 0.4s;
-    order: 0;
-    width: 100%;
-  }
-
-  .header-container.scroll {
-    height: auto;
-  }
-}
 
