@@ -1,11 +1,4 @@
 /* LiveStream.css */
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Ensure the body takes the full height of the viewport */
-  margin: 0; /* Remove default margin */
-}
 
 .container {
   display: grid;
@@ -17,6 +10,10 @@ body {
   display: flex;
   flex-direction: row; /* Stack cards vertically */
   gap: 20px; /* Adjust the gap as needed */
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  height: 100vh;
 }
 
 .stream-item {

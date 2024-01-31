@@ -10,7 +10,7 @@ const LiveStream = () => {
   ];
 
   return (
-    <Container>
+    <Container className='live-stream-container'>
       <Grid container spacing={2}>
         {streamUrls.map((stream, index) => (
           <Grid item xs={12} sm={6} key={index}>
