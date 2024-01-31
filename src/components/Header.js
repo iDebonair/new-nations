@@ -154,7 +154,7 @@ const Header = () => {
             <Link to="/visit" className="menu-item visit-item" onClick={handleCloseMenu}>
               VISIT
             </Link>
-            <Link to="/live-stream" className="menu-item visit-item" onClick={handleCloseMenu}>
+            <Link to="/live-stream" className="menu-item live-stream-item" onClick={handleCloseMenu}>
               LIVE STREAM
             </Link>
             <Link to="/calendar" className="menu-item calendar-item" onClick={handleCloseMenu}>

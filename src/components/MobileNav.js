@@ -111,6 +111,11 @@ const MobileNav = ({ menuOpen, toggleMenu }) => {
             </a>
           </li>
           <li className="nav__item">
+            <a className="nav__link" href="/live-stream">
+              Live Stream
+            </a>
+          </li>
+          <li className="nav__item">
             <a className="nav__link" href="/calendar">
               Need Prayer?
             </a>
