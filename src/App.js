@@ -11,6 +11,8 @@ import About from './components/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Pastorate from './components/Pastorate';
 import Youth from './components/Youth';
+import MinistryList from './components/Ministry';
+import MembershipForm from './components/Membership';
 
 
 const App = () => {
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/offering" element={<OfferingForm />} /> 
           <Route exact path="/" element={<Home />} />
           <Route path="/youth-unusual" element={<Youth />} /> 
+          <Route path="/ministries" element={<MinistryList />} /> 
+          <Route path="/member-database" element={<MembershipForm />} /> 
         </Routes>
       </div>
     </Router>
