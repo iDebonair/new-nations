@@ -47,7 +47,7 @@ const About = () => {
               <img
                 src={Reach}
                 alt="Reach"
-                style={{ width: '100%', height: '80%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
               />
             </div>
           </Grid>
@@ -69,9 +69,9 @@ const About = () => {
               size="large"
               sx={{
                 marginTop: '2rem',
-                backgroundColor: '#001F3F',
+                backgroundColor: 'grey',
                 color: 'white',
-                width: '40%', // Button takes full width on smaller screens
+                width: '40%',
                 '&:hover': {
                   background: '#001A33', // Darker shade on hover
                 },
@@ -100,7 +100,7 @@ const About = () => {
               size="large"
               sx={{
                 marginTop: '2rem',
-                backgroundColor: '#001F3F',
+                backgroundColor: 'grey',
                 color: 'white',
                 width: '40%', // Button takes full width on smaller screens
                 '&:hover': {
