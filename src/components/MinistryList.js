@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styling/Ministry.css';
 
 
-const MinistryList = () => {
+const MinistryList = ({ onSelectMinistry }) => {
   const ministries = [
     { id: 1, name: 'Ushering', description: 'Welcome and guide attendees during services.', image: 'Connect.jpg' },
     { id: 2, name: 'Music', description: 'Lead worship and enhance the worship experience.', image: 'Choir.jpg' },

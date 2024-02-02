@@ -10,10 +10,18 @@ import {
   MenuItem,
   Typography,
 } from '@mui/material';
+import { styled, } from '@mui/system';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { format } from 'date-fns';
 
+const HeaderTypography = styled(Typography)({
+  fontSize: '1.5rem',
+  marginBottom: '16px',
+  color: '#2196F3',
+});
+
 const Calendar = () => {
+
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedPerson, setSelectedPerson] = useState('');
@@ -69,13 +77,13 @@ const Calendar = () => {
   };
 
   return (
-    <Container maxWidth="sm" style={{ marginTop: '4rem' }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Schedule a Session
-      </Typography>
+    <Container maxWidth="sm" style={{ marginTop: '70px' }}>
+      <HeaderTypography variant="h6" align="center" gutterBottom>
+        We would love to pray with you! Let us know below how we can pray or discuss.
+      </HeaderTypography>
 
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <TextField
             label="Select Date"
             type="date"
@@ -87,7 +95,7 @@ const Calendar = () => {
             fullWidth
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <TextField
             label="Select Time"
             type="time"
@@ -127,11 +135,12 @@ const Calendar = () => {
           />
         </Grid>
         <Grid item xs={12}sm={6}>
-          <FormControl fullWidth>
+          <FormControl fullWidth variant="outlined">
             <InputLabel>Mode of Meeting</InputLabel>
             <Select
               value={modeOfMeeting}
               onChange={(e) => handleModeOfMeetingChange(e.target.value)}
+              label="Mode of Meeting"
             >
               <MenuItem value="In-person">In-person</MenuItem>
               <MenuItem value="Virtual">Virtual</MenuItem>
@@ -145,6 +154,7 @@ const Calendar = () => {
             <Select
               value={selectedPerson}
               onChange={(e) => handlePersonChange(e.target.value)}
+              label="Select Who to See"
             >
               <MenuItem value="Rev Abimbola">Rev Abimbola</MenuItem>
               <MenuItem value="Rev Adeyemo">Rev Adeyemo</MenuItem>

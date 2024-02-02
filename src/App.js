@@ -11,7 +11,7 @@ import About from './components/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Pastorate from './components/Pastorate';
 import Youth from './components/Youth';
-import MinistryList from './components/Ministry';
+import MinistryList from './components/MinistryList';
 import MembershipForm from './components/Membership';
 
 
