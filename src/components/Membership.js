@@ -33,7 +33,7 @@ const MembershipForm = () => {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: '10rem' }}>
+    <Container maxWidth="md" style={{ marginTop: '70px' }}>
       <Typography variant="h4" align="center" gutterBottom style={{marginBottom: '2rem'}}>
         Church Membership Update Form
       </Typography>
