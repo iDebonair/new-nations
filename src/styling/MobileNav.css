@@ -1,6 +1,11 @@
 /* MobileNav.css */
 
-@media screen and (max-width: 768px) {
+.menu-icon.white {
+  /* additional styles for the white menu icon */
+  color: white; /* set the color to white */
+}
+
+@media screen and (max-width: 882px) {
     .mobile-nav-container {
       position: relative;
     }
@@ -101,3 +106,5 @@
     }
    
   }
+
+ 

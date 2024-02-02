@@ -19,7 +19,29 @@ const Header = () => {
     const handleScroll = () => {
       const isScrolling = window.scrollY > 0;
       setScrolling(isScrolling);
+
+      // Add the 'scroll' class to the logo based on scrolling state
+      const churchName = document.querySelector('.church-name');
+      if (churchName) {
+        if (isScrolling) {
+          churchName.classList.add('scroll');
+        } else {
+          churchName.classList.remove('scroll');
+        }
+      }
+
+      // Add the 'scroll' class to menu items based on scrolling state
+      const menuItems = document.querySelectorAll('.menu-item');
+      menuItems.forEach((menuItem) => {
+        if (isScrolling) {
+          menuItem.classList.add('scroll');
+        } else {
+          menuItem.classList.remove('scroll');
+        }
+      });
     };
+
+    
 
     const handleOutsideClick = (event) => {
       if (menuOpen && menuIconRef.current && !menuIconRef.current.contains(event.target)) {
@@ -73,20 +95,21 @@ const Header = () => {
     }
   };
 
-  const isSmallScreen = window.innerWidth <= 768;
+  const headerClass = `header-container${scrolling || menuOpen ? ' scroll' : ''}`;
+  const isSmallScreen = window.innerWidth <= 882;
 
   return (
     <>
-      <div className={`header-container${scrolling || menuOpen ? ' scroll' : ''}`}>
+      <div className={headerClass}>
         <div className="logo-container">
-          <Link to="/" className="logo-container">
-            <img src={logo} alt="Church Logo" className="logo" width="40" height="40" />
-            <div className="church-name">New Nations Baptist Church</div>
+        <Link to="/" className="logo-container">
+            <img src={logo} alt="Church Logo" className={`logo${scrolling ? ' scroll' : ''}`} width="40" height="40" />
+            <div className={`church-name${scrolling ? ' scroll' : ''}`}>New Nations Baptist Church</div>
           </Link>
         </div>
 
         {isSmallScreen ? (
-          <MobileNav menuOpen={menuOpen} toggleMenu={toggleMenu} />
+          <MobileNav menuOpen={menuOpen} toggleMenu={toggleMenu} scrolling={scrolling} />
         ) : (
           <div className={`menu-container${menuOpen ? ' open' : ''}`}>
             <div
@@ -130,7 +153,7 @@ const Header = () => {
               <div className="menu-item-container">
                 <Link
                   to="/grow"
-                  className={`menu-item about-item ${window.innerWidth <= 768 ? 'plus-button' : ''}`}
+                  className={`menu-item about-item ${window.innerWidth <= 882 ? 'plus-button' : ''}`}
                   onClick={() => {
                     handleCloseMenu();
                     handleGrowClick();

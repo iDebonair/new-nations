@@ -24,7 +24,8 @@ body {
   height: 60px; /* Set the reduced height as needed */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  background-color: hsl(210, 20%, 98%);
+  background-color: black;
+  color: white;
 }
 
 .logo-container {
@@ -50,7 +51,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   margin-left: auto;
-  gap: 2rem;
+  gap: 1rem;
   z-index: 1;
   flex-wrap: wrap;
   overflow: hidden; /* hide overflow content */
@@ -87,9 +88,12 @@ body {
 }
 
 .menu-item:hover {
-  background-color: rgb(255, 255, 255);
   height: 25px;
   color: rgb(29, 7, 226);
+}
+.menu-item.scroll {
+  height: 25px;
+  color: white;
 }
 
 .sub-menu {
@@ -105,5 +109,39 @@ body {
 }
 
 
+.church-name.scroll {
+  height: 25px;
+  color: white;
+}
 
 
+/* Media query for landscape-oriented small screens */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .header-container {
+    padding: 0.5rem;
+  }
+
+  .church-name {
+    font-size: 1rem;
+  }
+
+  .menu-container {
+    flex-direction: column;
+    align-items: center;
+    max-height: none; /* Remove maximum height */
+    overflow: visible; /* Display all menu items */
+  }
+
+  .menu-item-container {
+    width: 100%;
+  }
+
+  .menu-item {
+    margin: 0.5rem 0;
+  }
+
+  .sub-menu {
+    position: static;
+    padding-top: 0;
+  }
+}

@@ -3,7 +3,7 @@ import '../styling/MobileNav.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
-const MobileNav = ({ menuOpen, toggleMenu }) => {
+const MobileNav = ({ menuOpen, toggleMenu, scrolling }) => {
     const [isAboutSubMenuOpen, setIsAboutSubMenuOpen] = useState(false);
     const [isGrowSubMenuOpen, setIsGrowSubMenuOpen] = useState(false);
     const [userClosedMenu, setUserClosedMenu] = useState(false);
@@ -72,8 +72,8 @@ const MobileNav = ({ menuOpen, toggleMenu }) => {
 
   return (
     <div className={`mobile-nav-container${menuOpen ? ' open' : ''}`} ref={containerRef}>
-      <div className="menu-icon" onClick={toggleMenu}>
-        <div className="bar"></div>
+    <div className={`menu-icon${scrolling ? ' white' : ''}`} onClick={toggleMenu}>
+      <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
