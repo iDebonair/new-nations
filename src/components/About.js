@@ -22,15 +22,15 @@ const About = () => {
 
       {/* Banner Container */}
       <Container style={{ padding: '0', margin: '0', position: 'relative', marginTop: '70px' }}>
-        <div style={{ width: '100vw', height: '60vh', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
+        <div style={{ width: '100vw', height: 'auto', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
           <img
             src={about}
             alt="Banner"
             style={{ width: '100%', objectFit: 'cover' }}
           />
           {/* Text Overlay */}
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white' }}>
-            <Typography variant="h2" style={{ fontWeight: 'bold', fontSize: isSmallScreen ? '2rem' : '3rem', margin: 0 }} gutterBottom>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', width: "100%" }}>
+            <Typography variant="h2" style={{  fontSize: isSmallScreen ? '2rem' : '4rem', margin: 0,  background: "rgba(45, 89, 135, 0.5)"}} gutterBottom>
               WHO WE ARE
             </Typography>
           </div>
