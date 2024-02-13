@@ -73,6 +73,7 @@
       position: relative;
       border: none;
       font-size: medium;
+      font-weight: bold;
       background-color:hsl(210, 20%, 98%) ;
     }
   

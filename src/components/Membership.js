@@ -44,7 +44,7 @@ const MembershipForm = () => {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: '70px' }}>
+    <Container maxWidth="md" style={{ marginTop: '100px' }}>
       <Typography variant="h4" align="center" gutterBottom style={{ marginBottom: '2rem', fontSize: '1.5rem', color: '#2196F3', }}>
         Church Membership Update Form
       </Typography>

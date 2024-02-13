@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../styling/Ministry.css';
 
-
 const MinistryList = ({ onSelectMinistry }) => {
   const ministries = [
     { id: 1, name: 'Ushering', description: 'Welcome and guide attendees during services.', image: 'Connect.jpg' },
@@ -10,12 +9,9 @@ const MinistryList = ({ onSelectMinistry }) => {
     { id: 4, name: 'Children', description: 'Provide education and activities for children.', image: 'children.jpg' },
     // Add more ministries as needed
   ];
-
-  // State to track the visibility of descriptions
   const [expandedMinistries, setExpandedMinistries] = useState([]);
 
-  // Function to toggle the visibility of the ministry description
-  const toggleMinistry = (ministryId) => {
+  const handleMinistryToggle = (ministryId) => {
     setExpandedMinistries((prevExpandedMinistries) =>
       prevExpandedMinistries.includes(ministryId)
         ? prevExpandedMinistries.filter((id) => id !== ministryId)
@@ -27,12 +23,10 @@ const MinistryList = ({ onSelectMinistry }) => {
     <div className="ministry-list-container">
       <ul className="ministry-list">
         {ministries.map((ministry) => (
-          <li key={ministry.id} className="ministry-item">
-            <div className="ministry-header">
+          <li key={ministry.id} className={`ministry-item ${expandedMinistries.includes(ministry.id) ? 'expanded' : ''}`}>
+            <div className="ministry-header" onClick={() => handleMinistryToggle(ministry.id)}>
               <h3>{ministry.name}</h3>
-              <button className="ministry-button" onClick={() => toggleMinistry(ministry.id)}>
-                {expandedMinistries.includes(ministry.id) ? '-' : '+'}
-              </button>
+              <button className="expand-button">{expandedMinistries.includes(ministry.id) ? '-' : '+'}</button>
             </div>
             {expandedMinistries.includes(ministry.id) && (
               <div className="ministry-details">

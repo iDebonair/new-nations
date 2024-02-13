@@ -21,7 +21,7 @@ const Home = () => {
           style={{
             position: 'relative',
             borderRadius: '8px',
-            overflow: 'hidden',
+            overflow: 'visible',
           }}
         >
           <video
