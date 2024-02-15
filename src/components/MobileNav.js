@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 import '../styling/MobileNav.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -73,9 +75,11 @@ const MobileNav = ({ menuOpen, toggleMenu, scrolling }) => {
   return (
     <div className={`mobile-nav-container${menuOpen ? ' open' : ''}`} ref={containerRef}>
     <div className={`menu-icon${scrolling ? ' white' : ''}`} onClick={toggleMenu}>
-      <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+    {menuOpen ? (
+          <CloseIcon />
+        ) : (
+          <MenuIcon />
+        )}
       </div>
       {menuOpen && (
         <ul className="nav">

@@ -26,7 +26,7 @@ const Visit = () => {
             <Typography variant="h2" style={{ fontWeight: 'bold', fontSize: isSmallScreen ? '2rem' : '3rem', margin: 10 }} gutterBottom>
             New Nations Baptist Church
           </Typography>
-          <Typography variant="body3" style={{ fontWeight: 'bold' }}>
+          <Typography variant="body1" style={{ fontWeight: 'bold' }}>
             Join us for a transformative worship experience
           </Typography>
         </div>

@@ -9,17 +9,17 @@ const About = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const overlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(45, 89, 135, 0.5)',
+  };
+
   return (
     <>
-      <style>
-        {`
-          body {
-            background-color: #f0f0f0;
-            margin: 0;
-          }
-        `}
-      </style>
-
       {/* Banner Container */}
       <Container style={{ padding: '0', margin: '0', position: 'relative', marginTop: '70px' }}>
         <div style={{ width: '100vw', height: 'auto', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
@@ -28,9 +28,10 @@ const About = () => {
             alt="Banner"
             style={{ width: '100%', objectFit: 'cover' }}
           />
+          <div style={overlayStyle}></div>
           {/* Text Overlay */}
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', width: "100%" }}>
-            <Typography variant="h2" style={{  fontSize: isSmallScreen ? '2rem' : '4rem', margin: 0,  background: "rgba(45, 89, 135, 0.5)"}} gutterBottom>
+            <Typography variant="h2" style={{ fontStyle:"bold", fontSize: isSmallScreen ? '2rem' : '4rem', margin: 0}} gutterBottom>
               WHO WE ARE
             </Typography>
           </div>
